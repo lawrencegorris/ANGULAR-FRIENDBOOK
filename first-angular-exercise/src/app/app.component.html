@@ -1,0 +1,63 @@
+{{ friendModel | json }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular Friend Book</title>
+  <link rel="stylesheet" href="">
+
+</head>
+<body>
+
+  <header>
+    <h1>BeCode Friend Book</h1>
+  </header>
+  
+  <main>
+    <form action="" #formName="ngForm" formName.form.invalid novalidate (ngSubmit)="sendData()">
+      <label for="intput-firstname">Firstname:</label>
+      <br>
+      <input required pattern="^[a-zA-Z]*$" #firstname="ngModel" [(ngModel)]="friendModel.firstname" type="text" name="input-firstname" [class.error]="firstname.invalid && firstname.touched">
+      <br>
+      <label for="input-lastname">Lastname:</label>
+      <br>
+      <input required pattern="^[a-zA-Z]*$" #lastname="ngModel" [(ngModel)]="friendModel.lastname" type="text" name="input-lastname" [class.error]="lastname.invalid && lastname.touched">
+      <br>
+      <label for="input-email">E-mail:</label>
+      <br>
+      <input required pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$" #email="ngModel" [(ngModel)]="friendModel.email" type="text" name="input-email" [class.error]="email.invalid && email.touched">
+      <br>
+      <label for="input-phone-number">Phone number:</label>
+      <br>
+      <input required minlength="8" pattern="^[0-9]*$" #phoneNumber="ngModel" [(ngModel)]="friendModel.phoneNumber" type="tel" name="input-phone-number" [class.error]="phoneNumber.invalid && phoneNumber.touched">
+      <br>
+      <label for="chosen-language">Choose your favourite language:</label>
+      <br>
+      <select required  #chosenLanguage="ngModel" [(ngModel)]="friendModel.chosenLanguage" name="chosen-language" id="chosen-language" [class.error]="chosenLanguage.invalid && chosenLanguage.touched">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="Javascript">Javascript</option>
+        <option value="PHP">PHP</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="C#">C#</option>
+        <option value="Ruby">Ruby</option>
+      </select>
+      <br>
+      <button type="submit" [disabled]="formName.invalid">Send your friend-data!</button>
+    </form>
+  </main>
+
+  <footer>
+
+  </footer>
+  
+</body>
+</html>
+
+<router-outlet></router-outlet>
