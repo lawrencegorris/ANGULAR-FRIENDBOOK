@@ -5,15 +5,14 @@ import { Friend } from './friend';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AddFriendService {
-  private url = '';
+  url: string = 'http://localhost:9001/allFriends';
 
-  addFriend(friend: Friend){
-    this.http.post(url, data);
-    return;
-  }
+  constructor(private http: HttpClient) {}
 
-  constructor(http: HttpClient) {
-    
+  public addFriend(friend: Friend){
+    return this.http.post(this.url, friend);
   }
+  
 }
