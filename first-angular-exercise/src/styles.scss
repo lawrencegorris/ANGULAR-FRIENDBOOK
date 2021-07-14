@@ -1,4 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+
+$background-color: #F1F1F1;
+$secondary-color: #262626;
+$primary-allignment: left;
+$primary-font:'Bebas Neue', cursive;
+$secondary-font: 'Roboto', sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .error{
-    background-color: blue;
-    border: 1px solid red;
+    border: 2px solid red;
+}
+
+body{
+    margin-top: -30px;
+    padding: 25px;
+    text-align: $primary-allignment;
+    background-color: $background-color;
+    color: $secondary-color;
+    font-family: $secondary-font;
+}
+
+main{
+    display: flex;
+}
+
+h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: $primary-font;
+    text-align: $primary-allignment;
+    font-size: 75px;
+}
+
+h2{
+    font-family: $primary-font;
+    font-size: 45px;
+}
+
+select{
+    text-align: $primary-allignment;
+}
+
+input, select, button{
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 450px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid $secondary-color;
+}
+
+#custom-message{
+    height: 150px;
+    padding: 0;
+}
+
+#friends-box{
+    margin-left: 50px;
+}
+
+#friends-flex{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.friend{
+    margin-bottom: 25px;
+    margin-left: 25px;
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+    padding: 15px;
+    width: 380px;   
+    height: 250px;
+
 }

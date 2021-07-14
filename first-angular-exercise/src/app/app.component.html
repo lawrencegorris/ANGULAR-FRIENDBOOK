@@ -11,11 +11,13 @@
 <body>
 
   <header>
-    <h1>BeCode Friend Book</h1>
+    <h1>MEMEBOOK</h1>
   </header>
   
   <main>
+    
     <form action="" #formName="ngForm" formName.form.invalid novalidate (ngSubmit)="sendData()">
+      <h2>Become a fellow meme:</h2>
       <label for="intput-firstname">Firstname:</label>
       <br>
       <input required pattern="^[a-zA-Z]*$" #firstname="ngModel" [(ngModel)]="friendModel.firstname" type="text" name="input-firstname" [class.error]="firstname.invalid && firstname.touched">
@@ -48,19 +50,31 @@
       </select>
       <br>
       <label for="custom-message">Tell me a fun fact about yourself:</label>
-      <input type="text" #customMessage="ngModel" [(ngModel)]="friendModel.customMessage" name="custom-message">
-      <button type="submit" [disabled]="formName.invalid">Send your friend-data!</button>
+      <br>
+      <input type="text" #customMessage="ngModel" [(ngModel)]="friendModel.customMessage" name="custom-message" id="custom-message">
+      <br>
+      <button type="submit" [disabled]="formName.invalid">SEND VERY MEMEINGFULL DATA</button>
     </form>
 
-    <section id="friends">
-      <h2>Lawrence's friends:</h2>
-      <div *ngFor="let friend of allFriends">
-        {{friend.firstname}}
-        {{friend.lastname}}
-        {{friend.email}}
-        {{friend.phoneNumber}}
-        {{friend.chosenLanguage}}
-        {{friend.customMessage}}
+    <section id="friends-box">
+      <h2>CURRENT MEME FRIENDS: </h2>
+      <div id="friends-flex">
+      <div id="friends-flex" *ngFor="let friend of allFriends">
+        <div class="friend">
+          <h3 id="name">
+            {{friend.firstname}}
+            {{friend.lastname}}
+          </h3>
+          <h3 id="contact-info">
+            Contact info:
+          </h3>
+          <p>{{friend.email}}
+          <p>{{friend.phoneNumber}}</p>
+          <h3 id="facts-and-fun-stuff">Info and fun stuff</h3>
+          <p>My preffered programming language is: {{friend.chosenLanguage}}</p> <br>
+          <p>{{friend.customMessage}}</p>
+        </div>
+      </div>
       </div>
     </section>
   </main>
